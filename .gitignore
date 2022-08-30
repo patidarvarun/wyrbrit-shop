@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /dist
+/out
 /.pnp
 .pnp.js
 .next
