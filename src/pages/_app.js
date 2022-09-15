@@ -24,6 +24,8 @@ import { gtm } from "../lib/gtm";
 import { store } from "../store";
 import { createTheme } from "../theme";
 import { createEmotionCache } from "../utils/create-emotion-cache";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 import "../i18n";
 
 const client = new ApolloClient({
@@ -44,6 +46,10 @@ const App = (props) => {
   useEffect(() => {
     gtm.initialize(gtmConfig);
   }, []);
+  const stripePromise = loadStripe(
+    "pk_test_51LabasSBAnAyyheh1eHmZUT6yHELndmIh1LvJy4eDuMZQo3kATeWkh0dHCI90hUvxQdFhlaCBhrNyQ1VQDVoJCno001vmRtGRk"
+  );
+  // pk_test_6pRNASCoBOKtIshFeQd4XMUh
 
   return (
     <CacheProvider value={emotionCache}>
@@ -69,15 +75,17 @@ const App = (props) => {
                         <CssBaseline />
                         <Toaster position="top-center" />
                         <SettingsButton />
-                        <AuthConsumer>
-                          {(auth) =>
-                            !auth.isInitialized ? (
-                              <SplashScreen />
-                            ) : (
-                              getLayout(<Component {...pageProps} />)
-                            )
-                          }
-                        </AuthConsumer>
+                        <Elements stripe={stripePromise}>
+                          <AuthConsumer>
+                            {(auth) =>
+                              !auth.isInitialized ? (
+                                <SplashScreen />
+                              ) : (
+                                getLayout(<Component {...pageProps} />)
+                              )
+                            }
+                          </AuthConsumer>
+                        </Elements>
                       </RTL>
                     </ThemeProvider>
                   )}
