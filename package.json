@@ -12,6 +12,9 @@
     "lint": "next lint",
     "lint-fix": "next lint --fix"
   },
+  "browser":{
+    "child_process": false
+    }  ,
   "browserslist": {
     "production": [
       ">0.2%",

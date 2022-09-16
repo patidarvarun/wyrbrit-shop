@@ -4,20 +4,11 @@ const stripe = require("stripe")(
 
 module.exports = async (req, res) => {
   const { id } = req.body;
-  console.log("iiiiiiiiiidddd", id);
-  let session;
+  console.log("iiiiid", id);
   try {
-    session = await stripe.checkout.sessions
-      .retrieve(id)
-      .then((data) => {
-        return res.send(data);
-      })
-      .catch((err) => {
-        console.log("errrr", err.message);
-      });
+    const session = await stripe.checkout.sessions.retrieve(id);
+    console.log("#!!!!!!!!!!##", session);
   } catch (err) {
     res.status(500).json({ statusCode: 500, message: err.message });
   }
-
-  return session;
 };

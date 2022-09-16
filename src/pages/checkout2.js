@@ -17,7 +17,6 @@ const Checkout2 = () => {
         slug: "navy-office",
         totalAmount: price,
         quantity: quantity,
-        currentRoute: window.location.pathname,
       }),
     })
       .then((res) => res.json())

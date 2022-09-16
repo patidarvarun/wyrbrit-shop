@@ -4,8 +4,9 @@ const stripe = require("stripe")(
 
 module.exports = async (req, res) => {
   const { totalAmount, quantity, slug } = req.body;
+  let session;
   try {
-    const session = await stripe.checkout.sessions.create({
+    session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: [
         {
@@ -24,6 +25,7 @@ module.exports = async (req, res) => {
       cancel_url: `${req.headers.origin}`,
     });
     res.json({ url: session.url });
+    return session;
   } catch (err) {
     res.status(500).json({ statusCode: 500, message: err.message });
   }
