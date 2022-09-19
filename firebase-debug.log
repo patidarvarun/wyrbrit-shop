@@ -1,0 +1,59 @@
+[debug] [2022-09-19T12:34:34.902Z] ----------------------------------------------------------------------
+[debug] [2022-09-19T12:34:34.903Z] Command:       /home/varun/.nvm/versions/node/v18.3.0/bin/node /home/varun/.nvm/versions/node/v18.3.0/bin/firebase init
+[debug] [2022-09-19T12:34:34.904Z] CLI Version:   11.8.0
+[debug] [2022-09-19T12:34:34.904Z] Platform:      linux
+[debug] [2022-09-19T12:34:34.904Z] Node Version:  v18.3.0
+[debug] [2022-09-19T12:34:34.904Z] Time:          Mon Sep 19 2022 18:04:34 GMT+0530 (India Standard Time)
+[debug] [2022-09-19T12:34:34.905Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-09-19T12:34:34.907Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-09-19T12:34:35.005Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-09-19T12:34:35.006Z] > authorizing via signed-in user (govind@mangoitsolutions.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/varun/Desktop/DEMO/wyrbritshop
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[debug] [2022-09-19T12:34:35.645Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-09-19T12:34:35.645Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Account Setup
+[info] 
+[info] Which account do you want to use for this project? Choose an account or add a new one now
+[info] 
+[debug] [2022-09-19T12:34:46.349Z] setProjectAccount(/home/varun/Desktop/DEMO/wyrbritshop, varun.mangoit@gmail.com)
+[info] 
+[info] ✔  Using account: varun.mangoit@gmail.com 
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-09-19T12:34:46.353Z] Using project from CLI flag: wrybrit-databases
+[debug] [2022-09-19T12:34:46.354Z] > refreshing access token with scopes: []
+[debug] [2022-09-19T12:34:46.355Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-09-19T12:34:46.355Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-09-19T12:34:46.715Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-09-19T12:34:46.716Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-09-19T12:34:46.722Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/wrybrit-databases [none]
+[debug] [2022-09-19T12:34:47.338Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/wrybrit-databases 403
+[debug] [2022-09-19T12:34:47.338Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/wrybrit-databases {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2022-09-19T12:34:47.339Z] HTTP Error: 403, The caller does not have permission
+[debug] [2022-09-19T12:34:47.603Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at responseToError (/home/varun/.nvm/versions/node/v18.3.0/lib/node_modules/firebase-tools/lib/responseToError.js:49:12)
+    at RetryOperation._fn (/home/varun/.nvm/versions/node/v18.3.0/lib/node_modules/firebase-tools/lib/apiv2.js:288:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get Firebase project wrybrit-databases. Please make sure the project exists and your account has permission to access it.

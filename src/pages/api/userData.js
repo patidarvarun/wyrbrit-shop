@@ -4,7 +4,6 @@ const stripe = require("stripe")(
 
 module.exports = async (req, res) => {
   const { id } = req.body;
-  console.log("iiiiiiiiiidddd", id);
   let session;
   try {
     session = await stripe.checkout.sessions

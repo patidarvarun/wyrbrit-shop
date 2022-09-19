@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
         },
       ],
       mode: "payment",
-      success_url: `http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `http://localhost:3000/checkout2?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.origin}`,
     });
     res.json({ url: session.url });

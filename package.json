@@ -12,9 +12,9 @@
     "lint": "next lint",
     "lint-fix": "next lint --fix"
   },
-  "browser":{
+  "browser": {
     "child_process": false
-    }  ,
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -78,6 +78,7 @@
     "react-dropzone": "^14.2.1",
     "react-hot-toast": "^2.2.0",
     "react-i18next": "^11.16.9",
+    "react-loading": "^2.0.3",
     "react-markdown": "^8.0.3",
     "react-quill": "2.0.0-beta.4",
     "react-redux": "^8.0.2",
