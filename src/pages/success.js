@@ -1,13 +1,14 @@
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "@mui/material";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 
 const Success = () => {
   const router = useRouter();
   const id = router.query.session_id;
+  const [sessionData, setSessionData] = useState("");
 
-  useEffect(() => {
+  function getSessionData() {
     fetch("/api/userData/", {
       method: "POST",
       headers: {
@@ -19,9 +20,14 @@ const Success = () => {
     })
       .then((res) => res.json())
       .then((json) => {
-        console.log("response@@@@@@@", json);
+        setSessionData(json);
       });
-  }, []);
+  }
+  useEffect(() => {
+    getSessionData();
+  }, [id]);
+
+  console.log("sessionData", sessionData);
 
   return (
     <div>
