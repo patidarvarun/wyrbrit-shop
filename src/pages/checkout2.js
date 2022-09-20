@@ -115,18 +115,17 @@ const Checkout2 = () => {
           total: `${productQuantity * productPrice}`,
         },
       ],
-      shipping_lines: [
-        {
-          method_id: sessionData?.payment_intent,
-          method_title:
-            sessionData?.payment_method_types[0] === "card"
-              ? "card"
-              : sessionData?.payment_method_types[0],
-          total: `${sessionData?.amount_total / 100}`,
-        },
-      ],
+      // shipping_lines: [
+      //   {
+      //     method_id: sessionData?.payment_intent,
+      //     method_title:
+      //       sessionData?.payment_method_types[0] === "card"
+      //         ? "card"
+      //         : sessionData?.payment_method_types[0],
+      //     total: `${sessionData?.amount_total / 100}`,
+      //   },
+      // ],
       transaction_id: sessionData?.payment_intent,
-      total: `${sessionData?.amount_total / 100}`,
       status:
         sessionData?.status === "complete" ? "completed" : sessionData?.status,
     };
@@ -195,7 +194,7 @@ const Checkout2 = () => {
               <center>
                 <Box sx={style}>
                   <Loader />
-                  <p>Loading...</p>
+                  <p>Please wait...</p>
                 </Box>
               </center>
             ) : (
